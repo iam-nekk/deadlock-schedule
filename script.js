@@ -45,11 +45,28 @@ class Scheduler {
         if (!this.schedule[repeatTime]) {
             this.schedule[repeatTime] = []
         }
-        this.schedule[this.time + interval].push({"name": event.name, "thenRepeatEvery": interval})
+        const newEvent = {"name": event.name, "thenRepeatEvery": interval}
+        if (this.schedule[repeatTime].some(e => e.name === event.name && e.thenRepeatEvery === interval)) {
+            return
+        }
+        this.schedule[this.time + interval].push(newEvent)
     }
 
     addTime(seconds) {
-        this.time += seconds
+        // check for positive number        
+        if (seconds > 0) {
+            const previousTime = this.time
+            for (let i = previousTime; i < previousTime + seconds; i++) {
+                this.time++
+                const events = this.schedule[this.time]
+                if (events) {
+                    this._runEvents(events)
+                }
+            }
+        }
+        else {
+            this.time += seconds
+        }
         displayTime(this.time)
     }
 
@@ -67,14 +84,18 @@ class Scheduler {
         displayTime(this.time)
         const events = this.schedule[this.time]
         if (events) {
-            events.forEach(event => {
-                console.log(`Time ${this.time}: ${event.name}`)
-                notifyUser(event.name, this.time)
-                if (event.thenRepeatEvery) {
-                    this.repeat(event, event.thenRepeatEvery)
-                }
-            })
+            this._runEvents(events)
         }
+    }
+
+    _runEvents(events) {
+        events.forEach(event => {
+            console.log(`Time ${this.time}: ${event.name}`)
+            notifyUser(event.name, this.time)
+            if (event.thenRepeatEvery) {
+                this.repeat(event, event.thenRepeatEvery)
+            }
+        })
     }
 }
 
