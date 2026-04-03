@@ -3,7 +3,7 @@
 body {
     font-family: 'Newsreader', serif;
     background-color: #202122;
-    color: #f0f0f0;
+    color: #FFF0D6;
     margin: 0;
     padding: 20px;
     font-size: 1.2rem;
@@ -27,6 +27,7 @@ button{
 }
 
 button, input {
+    font-family: 'Newsreader', serif;
     background-color: #FFF0D6;
     color: #483728;
     border: none;
@@ -43,11 +44,11 @@ button:hover, input:hover {
 }
 
 #controls #group1 button{
-    width:24.5%;
+    width:24%; /* todo: make this less shit */
     border-radius: 4px 4px 0 0;
 }
 #controls #group2 button, #controls #group2 input{
-    width:44.8%;
+    width:44%; /* todo: same here */
     border-radius: 0 0 4px 4px;
 }
 
