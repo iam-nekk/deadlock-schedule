@@ -4,31 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deadlock Timings App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Deadlock Timings</h1>
 
-    <p id="state">State: Stopped</p>
-    <p id="time-display">Time: 0:00</p>
-
-    <button onclick="run()">Start</button>
-    <button onclick="scheduler.pause()">Pause</button>
-    <button onclick="scheduler.resume()">Resume</button>
-    <button onclick="scheduler.reset()">Reset</button>
+    <div id="top">
+        <span id="state">State: Stopped</span><br>
+        <span id="time-display">Time: 0:00</span>
+    </div>
     <br>
-    <input type="text" id="add-time" placeholder="Time in seconds">
-    <button onclick="addTime()">Add time to Timer</button>
-
+    
+    <div id="controls">
+        <div class="flex-group" id="group1">
+            <button onclick="run()">Start</button>
+            <button onclick="scheduler.pause()">Pause</button>
+            <button onclick="scheduler.resume()">Resume</button>
+            <button onclick="scheduler.reset()">Reset</button>
+        </div>
+        <div class="flex-group" id="group2">
+            <input type="text" id="add-time" placeholder="Time in seconds">
+            <button onclick="addTime()">Add time to Timer</button>
+        </div>
+    </div>
     <br>
 
     <div id="notification-pop">
-        <p>We recommend enabling notifications to not miss the timings!</p>
+        <span>Enable notifications to not miss the timings!</span><br>
         <button onclick="Notification.requestPermission()">Enable Notifications</button>
     </div>
     <hr>
 
-    <h2>Recent Events</h2>
-    <ul id="events"></ul>
+    <div id="events-container">
+        <h2>Recent Events</h2>
+        <ul id="events"></ul>
+    </div>
+
     <audio src="./notification.ogg" hidden id="notification-audio"></audio>
 </body>
 <script src="script.js"></script>

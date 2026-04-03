@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+
+body {
+    font-family: 'Newsreader', serif;
+    background-color: #202122;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+h1 {
+    font-family: 'Alice', serif;
+    font-weight: bold;
+}
+
+#controls {
+    background-color: #58402c;
+    width: fit-content;
+    font-size: 0; /* weird hack to remove extra space between inline-block elements */
+    border-radius: 6px;
+    padding: 2px;
+}
+
+button{
+    margin: 0;
+}
+
+button, input {
+    background-color: #FFF0D6;
+    color: #483728;
+    border: none;
+    padding: 10px 20px;
+    margin: 1px;
+    cursor: pointer;
+    font-size: 1rem;
+
+}
+
+button:hover, input:hover {
+    background-color: #483728;
+    color: #FFF0D6;
+}
+
+#controls #group1 button{
+    width:24.5%;
+    border-radius: 4px 4px 0 0;
+}
+#controls #group2 button, #controls #group2 input{
+    width:44.8%;
+    border-radius: 0 0 4px 4px;
+}
+
+#notification-pop {
+    background-color: #58402c;
+    color: #FFF0D6;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+    display: inline-block;
+}
