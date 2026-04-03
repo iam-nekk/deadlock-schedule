@@ -62,6 +62,7 @@ class Scheduler {
         if (events) {
             events.forEach(event => {
                 console.log(`Time ${this.time}: ${event.name}`)
+                notifyUser(event.name, this.time)
                 if (event.thenRepeatEvery) {
                     this.repeat(event, event.thenRepeatEvery)
                 }
@@ -73,6 +74,14 @@ class Scheduler {
 let scheduler
 const state_display = document.getElementById('state')
 const time_display = document.getElementById('time-display')
+const event_div = document.getElementById('events')
+const audio_element = document.getElementById('notification-audio')
+
+const notification_div = document.getElementById('notification-pop')
+if (Notification.permission !== 'default') {
+    notification_div.parentElement.removeChild(notification_div)
+}
+
 
 function run(){
     if (scheduler) {
@@ -86,6 +95,26 @@ function run(){
             scheduler.start()
         })
         .catch(error => console.error('Error loading schedule:', error))
+}
+
+function notifyUser(message, time) {
+    // check for notification permission, if enabled, show notif 
+    if (Notification.permission === 'granted') {
+        new Notification(message)
+    }
+    // play sound
+    audio_element.currentTime = 0
+    audio_element.play()
+
+    // check if the browser supports vibrations
+    if (navigator.vibrate) {
+        navigator.vibrate(200) // vibrate for 200ms
+    }
+
+    // add event to event div
+    const eventElement = document.createElement('li')
+    eventElement.textContent = `${convertTime(time)}: ${message}`
+    event_div.insertBefore(eventElement, event_div.firstChild)
 }
 
 function displayState(state) {

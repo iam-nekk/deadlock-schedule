@@ -7,12 +7,26 @@
 </head>
 <body>
     <h1>Deadlock Timings</h1>
+
     <p id="state">State: Stopped</p>
     <p id="time-display">Time: 00:00</p>
+
     <button onclick="run()">Start</button>
     <button onclick="scheduler.pause()">Pause</button>
     <button onclick="scheduler.resume()">Resume</button>
     <button onclick="scheduler.reset()">Reset</button>
+
+    <br>
+
+    <div id="notification-pop">
+        <p>We recommend enabling notifications to not miss the timings!</p>
+        <button onclick="Notification.requestPermission()">Enable Notifications</button>
+    </div>
+    <hr>
+
+    <h2>Recent Events</h2>
+    <ul id="events"></ul>
+    <audio src="./notification.ogg" hidden id="notification-audio"></audio>
 </body>
 <script src="script.js"></script>
 </html>
