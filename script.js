@@ -36,6 +36,8 @@ class Scheduler {
         this.time = 0
         displayState('Stopped')
         displayTime(this.time)
+        // clear events        
+        event_div.innerHTML = ''
     }
 
     repeat(event, interval) {
@@ -44,6 +46,11 @@ class Scheduler {
             this.schedule[repeatTime] = []
         }
         this.schedule[this.time + interval].push({"name": event.name, "thenRepeatEvery": interval})
+    }
+
+    addTime(seconds) {
+        this.time += seconds
+        displayTime(this.time)
     }
 
     _loop() {
@@ -76,6 +83,7 @@ const state_display = document.getElementById('state')
 const time_display = document.getElementById('time-display')
 const event_div = document.getElementById('events')
 const audio_element = document.getElementById('notification-audio')
+const add_time_input = document.getElementById('add-time')
 
 const notification_div = document.getElementById('notification-pop')
 if (Notification.permission !== 'default') {
@@ -115,6 +123,18 @@ function notifyUser(message, time) {
     const eventElement = document.createElement('li')
     eventElement.textContent = `${convertTime(time)}: ${message}`
     event_div.insertBefore(eventElement, event_div.firstChild)
+}
+
+function addTime(){
+    if (!scheduler) return
+    const additionalTime = parseInt(add_time_input.value)
+    if (isNaN(additionalTime)) {
+        alert('Please enter a valid number of seconds to add.')
+        return
+    }
+    scheduler.addTime(additionalTime)
+    displayTime(scheduler.time)
+    add_time_input.value = ''
 }
 
 function displayState(state) {
