@@ -76,3 +76,7 @@ button:hover, input:hover {
 #notification-pop button{
     border-radius: 4px;
 }
+
+img {
+    width: 100%;
+}
