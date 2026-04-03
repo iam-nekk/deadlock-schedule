@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alice&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
 
 body {
     font-family: 'Newsreader', serif;
@@ -10,7 +11,7 @@ body {
 }
 
 h1 {
-    font-family: 'Alice', serif;
+    font-family: 'Young Serif', serif;
     font-weight: bold;
 }
 
@@ -37,7 +38,7 @@ button, input {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
 
 }
 
@@ -67,8 +68,11 @@ button:hover, input:hover {
 #notification-pop {
     background-color: #58402c;
     color: #FFF0D6;
-    padding: 15px;
+    padding: 4px;
     border-radius: 6px;
-    margin-top: 20px;
+    margin-top: 8px;
     display: inline-block;
+}
+#notification-pop button{
+    border-radius: 4px;
 }
