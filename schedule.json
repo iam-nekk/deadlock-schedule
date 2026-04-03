@@ -1,0 +1,11 @@
+{
+    "30":[{"name":"Troopers arrive in lane"}],
+    "120":[{"name":"Small camps spawned"},{"name":"First Boxes & Statues spawned"}],
+    "300":[{"name":"Bridge buff spawned", "thenRepeatEvery": 300},{"name":"Melee Troopers spawned"}],
+    "360":[{"name":"Medium camps spawned"},{"name":"Zipline boosts active"}],
+    "480":[{"name":"Big camps spawned"},{"name":"First Sinner's sacrifice spawned"}],
+    "600":[{"name":"Midboss spawned", "thenRepeatEveryOnceCleared": [420,360,300], "waitForClear": true},{"name":"Urn spawned", "thenRepeatEvery": 300},{"name":"Mid boxes spawned"}, {"name":"Gold statues buffed"}],
+    "720":[{"name":"Lane Guardian resistance lowered (-75%)"}],
+    "1080":[{"name":"Walker resistance lowered (-65%)"}],
+    "1800":[{"name":"Gold statues buffed again"}]
+}
