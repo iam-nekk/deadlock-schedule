@@ -148,7 +148,7 @@ function notifyUser(message, time) {
 
 function addTime(){
     if (!scheduler) return
-    const additionalTime = parseInt(add_time_input.value)
+    const additionalTime = convertTimeToSeconds(add_time_input.value)
     if (isNaN(additionalTime)) {
         alert('Please enter a valid number of seconds to add.')
         return
@@ -170,4 +170,13 @@ function convertTime(seconds) {
     const minutes = Math.floor(seconds / 60)
     const remainingSeconds = seconds % 60
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`
+}
+
+function convertTimeToSeconds(timeStr) {
+    const [minutes, seconds] = timeStr.split(':').map(Number)
+    console.log(timeStr, minutes, seconds)
+    if (seconds === undefined) {
+        return minutes
+    }
+    return minutes * 60 + seconds
 }
