@@ -107,10 +107,11 @@ const audio_element = document.getElementById('notification-audio')
 const add_time_input = document.getElementById('add-time')
 
 const notification_div = document.getElementById('notification-pop')
-if (Notification.permission !== 'default' || !("Notification" in window)) {
+if (!("Notification" in window)) {
+    notification_div.parentElement.removeChild(notification_div)
+} else if (Notification.permission !== 'default') {
     notification_div.parentElement.removeChild(notification_div)
 }
-
 
 function run(){
     if (scheduler) {
