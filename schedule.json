@@ -7,5 +7,6 @@
     "600":[{"name":"Midboss spawned", "thenRepeatEveryOnceCleared": [420,360,300], "waitForClear": true},{"name":"Urn spawned", "thenRepeatEvery": 300},{"name":"Mid boxes spawned"}, {"name":"Gold statues buffed"}],
     "720":[{"name":"Lane Guardian resistance lowered (-75%)"}],
     "1080":[{"name":"Walker resistance lowered (-65%)"}],
-    "1800":[{"name":"Gold statues buffed again"}]
+    "1800":[{"name":"Gold statues buffed again"}],
+    "10800":[{"name":"Game has been running for a while. Did you forget to stop the timer? If not, good luck lol"}]
 }

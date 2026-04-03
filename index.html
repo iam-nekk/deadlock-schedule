@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deadlock Timings App</title>
-    <script src="script.js"></script>
 </head>
 <body>
-    
+    <h1>Deadlock Timings</h1>
+    <p id="state">State: Stopped</p>
+    <p id="time-display">Time: 00:00</p>
+    <button onclick="run()">Start</button>
+    <button onclick="scheduler.pause()">Pause</button>
+    <button onclick="scheduler.resume()">Resume</button>
+    <button onclick="scheduler.reset()">Reset</button>
 </body>
+<script src="script.js"></script>
 </html>
