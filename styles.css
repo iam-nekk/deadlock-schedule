@@ -35,7 +35,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('./swirl.avif');
+    background-image: url('./swirl.svg');
     background-size: cover;
     background-position: center;
     background-blend-mode: saturation;
