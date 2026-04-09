@@ -199,12 +199,13 @@ function convertTimeToSeconds(timeStr) {
         timeStr = timeStr.substring(1)
     }
     const [minutes, seconds] = timeStr.split(':').map(Number)
-    console.log(timeStr, minutes, seconds)
+    console.log(timeStr, minutes, seconds, isTimeNegative)
+    
     if (seconds === undefined) {
+        if (isTimeNegative) return -minutes
+        
         return minutes
     }
-    if (isTimeNegative) {
-        return -(minutes * 60 + seconds)
-    }
+    if (isTimeNegative) return -(minutes * 60 + seconds)
     return minutes * 60 + seconds
 }
