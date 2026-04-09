@@ -4,6 +4,10 @@
     font-family: PirataOne;
     src: url("./PirataOne-Regular.ttf") format("truetype");
 }
+@font-face {
+    font-family: SourceSerifPro;
+    src: url("./SourceSerifPro-Regular.ttf") format("truetype");
+}
 
 *,
 *::before,
@@ -12,7 +16,7 @@
 }
 
 body {
-    font-family: 'Newsreader', serif;
+    font-family: 'SourceSerifPro', 'Newsreader', serif;
     background-color: #202122;
     color: #FFF0D6;
     margin: 0;
