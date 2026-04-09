@@ -116,6 +116,7 @@ h1, h2 {
 
 details{
     border-radius: 8px;
+    width: 100%;
 }
 
 button{
