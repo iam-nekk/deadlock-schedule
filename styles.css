@@ -21,7 +21,7 @@ body {
 
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: row; */
+    flex-direction: row;
     gap: 24px;
     height: 99vh;
 }
@@ -51,6 +51,7 @@ main {
 @media (max-width: 800px) {
     body {
         flex-direction: column;
+        flex-wrap: nowrap;
     }
      
     
