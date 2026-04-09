@@ -58,13 +58,7 @@ main, #events-container {
     border-color: #FFF0D6;
     border-width: 2px;
     border-style: solid;
-}
-
-main {
-    min-height: 100%;
-}
-
-#events-container {
+    backdrop-filter: blur(16px);
     min-height: 100%;
 }
 
@@ -74,7 +68,9 @@ main {
 }
 
 footer {
+    font-size: 0;
     text-align: center;
+    padding-bottom: 4px;
 }
 
 footer a {
