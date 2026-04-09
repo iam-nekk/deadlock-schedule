@@ -9,6 +9,15 @@ class Scheduler {
     start() {
         console.log('Scheduler started')
         if (this.running) return
+        if (offset_time_input.value) {
+            const offsetTime = convertTimeToSeconds(offset_time_input.value)
+            if (isNaN(offsetTime)) {
+                console.log('Please enter a valid offset time (1:30 or 90). Starting at 0:00.')
+            } else {
+                this.time = offsetTime - 1 // the first tick will add 1 second, so we start at offsetTime - 1
+                console.log(`Starting with offset time: ${convertTime(this.time)}`)
+            }
+        }
         this.running = true
         this._loop()
         displayState('Running')
@@ -35,7 +44,7 @@ class Scheduler {
         this.pause()
         this.time = 0
         displayState('Stopped')
-        displayTime(this.time)
+        displayTime(null)
         // clear events        
         event_div.innerHTML = ''
     }
@@ -105,6 +114,7 @@ const time_display = document.getElementById('time-display')
 const event_div = document.getElementById('events')
 const audio_element = document.getElementById('notification-audio')
 const add_time_input = document.getElementById('add-time')
+const offset_time_input = document.getElementById('offset-time')
 
 const notification_div = document.getElementById('notification-pop')
 if (!("Notification" in window)) {
@@ -159,24 +169,42 @@ function addTime(){
 }
 
 function displayState(state) {
-    state_display.textContent = `State: ${state}`
+    state_display.textContent = `${state}`
 }
 
 function displayTime(seconds) {
+    if (seconds == null) {
+        time_display.textContent = 'No game started'
+        return
+    } 
     time_display.textContent = `Time: ${convertTime(seconds)}`
 }
 
 function convertTime(seconds) {
+    let isTimeNegative = false
+    if (seconds < 0) {
+        isTimeNegative = true
+        seconds = Math.abs(seconds)
+    }
     const minutes = Math.floor(seconds / 60)
     const remainingSeconds = seconds % 60
-    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`
+    const timeString = `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`
+    return isTimeNegative ? `-${timeString}` : timeString
 }
 
 function convertTimeToSeconds(timeStr) {
+    let isTimeNegative = false
+    if (timeStr.startsWith('-')) {
+        isTimeNegative = true
+        timeStr = timeStr.substring(1)
+    }
     const [minutes, seconds] = timeStr.split(':').map(Number)
     console.log(timeStr, minutes, seconds)
     if (seconds === undefined) {
         return minutes
+    }
+    if (isTimeNegative) {
+        return -(minutes * 60 + seconds)
     }
     return minutes * 60 + seconds
 }

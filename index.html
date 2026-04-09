@@ -9,11 +9,11 @@
     <link rel="shortcut icon" href="icon-192.png" type="image/png">
 </head>
 <body>
-    <h1>Deadlock Timings</h1>
+<main>
+    <h1 id="time-display">No game started</h1>
 
     <div id="top">
-        <span id="state">State: Stopped</span><br>
-        <span id="time-display">Time: 0:00</span>
+        <span id="state">Stopped</span><br>
     </div>
     
     <div id="controls">
@@ -23,9 +23,12 @@
             <button onclick="scheduler.resume()">Resume</button>
             <button onclick="scheduler.reset()">Reset</button>
         </div>
-        <div class="flex-group" id="group2">
+        <div class="flex-group" id="group3">
             <input type="text" id="add-time" placeholder="1:30 or 90">
             <button onclick="addTime()">Add time to Timer</button>
+        </div>
+        <div class="flex-group" id="group2">
+            <input type="text" id="offset-time" placeholder="Start with offset (1:30 or 90 or negative time)">
         </div>
     </div>
 
@@ -42,7 +45,7 @@
         <img src="https://i.redd.it/93ax7y2dcvqg1.png" alt="Credits to @DedlockoGuides" >
     </details>
 
-    <hr>
+</main>
 
     <div id="events-container">
         <h2>Recent Events</h2>
