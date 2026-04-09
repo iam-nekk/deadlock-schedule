@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,51 +9,61 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="shortcut icon" href="icon-192.png" type="image/png">
 </head>
+
 <body>
-<main>
-    <h1 id="time-display">No game started</h1>
+    <div id="main-page">
+        <main>
+            <h1 id="time-display">No game started</h1>
 
-    <div id="top">
-        <span id="state">Stopped</span><br>
-    </div>
-    
-    <div id="controls">
-        <div class="flex-group" id="group1">
-            <button onclick="run()">Start</button>
-            <button onclick="scheduler.pause()">Pause</button>
-            <button onclick="scheduler.resume()">Resume</button>
-            <button onclick="scheduler.reset()">Reset</button>
+            <div id="top">
+                <span id="state">Stopped</span><br>
+            </div>
+
+            <div id="controls">
+                <div class="flex-group" id="group1">
+                    <button onclick="run()">Start</button>
+                    <button onclick="scheduler.pause()">Pause</button>
+                    <button onclick="scheduler.resume()">Resume</button>
+                    <button onclick="scheduler.reset()">Reset</button>
+                </div>
+                <div class="flex-group" id="group3">
+                    <input type="text" id="add-time" placeholder="1:30 or 90 or negative time">
+                    <button onclick="addTime()">Add time to Timer</button>
+                </div>
+                <div class="flex-group" id="group2">
+                    <input type="text" id="offset-time" placeholder="Start with offset (1:30 or 90 or negative time)">
+                </div>
+            </div>
+
+            <div id="notification-pop">
+                <!-- <span>Enable notifications to not miss the timings!</span><br> -->
+                <button onclick="Notification.requestPermission()">Enable Notifications</button>
+            </div>
+
+            <br>
+            <details>
+                <summary>Show timing infographic</summary>
+                <!-- Credits to @DedlockoGuides for the infographic -->
+                <!-- https://www.reddit.com/r/DeadlockTheGame/comments/1s1ve28/infographic_deadlock_timings_objective_respawn/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button -->
+                <img src="https://i.redd.it/93ax7y2dcvqg1.png" alt="Credits to @DedlockoGuides">
+            </details>
+
+        </main>
+
+        <div id="events-container">
+            <h2>Recent Events</h2>
+            <ul id="events"></ul>
         </div>
-        <div class="flex-group" id="group3">
-            <input type="text" id="add-time" placeholder="1:30 or 90 or negative time">
-            <button onclick="addTime()">Add time to Timer</button>
-        </div>
-        <div class="flex-group" id="group2">
-            <input type="text" id="offset-time" placeholder="Start with offset (1:30 or 90 or negative time)">
-        </div>
     </div>
-
-    <div id="notification-pop">
-        <!-- <span>Enable notifications to not miss the timings!</span><br> -->
-        <button onclick="Notification.requestPermission()">Enable Notifications</button>
-    </div>
-
-    <br>
-    <details>
-        <summary>Show timing infographic</summary>
-        <!-- Credits to @DedlockoGuides for the infographic -->
-        <!-- https://www.reddit.com/r/DeadlockTheGame/comments/1s1ve28/infographic_deadlock_timings_objective_respawn/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button -->
-        <img src="https://i.redd.it/93ax7y2dcvqg1.png" alt="Credits to @DedlockoGuides" >
-    </details>
-
-</main>
-
-    <div id="events-container">
-        <h2>Recent Events</h2>
-        <ul id="events"></ul>
-    </div>
-
     <audio src="./notification.ogg" hidden id="notification-audio"></audio>
+    <footer>
+        <p>
+            <a
+                href="https://www.freepik.com/free-vector/swirling-abstract-red-irregular-organic-lines-seamless-pattern_68880211.htm#fromView=keyword&page=1&position=0&uuid=b6ac7a02-0cc1-4669-8746-538f6fdf83ff&query=Red+abstract+swirls">Background
+                designed by Freepik</a>
+        </p>
+    </footer>
 </body>
 <script src="script.js"></script>
+
 </html>
