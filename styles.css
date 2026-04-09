@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Alice&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
 @font-face {
-    font-family: PirataOne;
+    font-family: "PirataOne";
     src: url("./PirataOne-Regular.ttf") format("truetype");
 }
 @font-face {
-    font-family: SourceSerifPro;
-    src: url("./SourceSerifPro-Regular.ttf") format("truetype");
+    font-family: "SourceSerifPro";
+    src: url("./SourceSerifPro-Regular.otf") format("truetype");
+}
+@font-face {
+    font-family: "SourceSerifPro";
+    src: url("./SourceSerifPro-Bold.otf") format("truetype");
+    font-weight: bold;
 }
 
 *,
@@ -179,4 +184,24 @@ img {
 
 #state{
     opacity: 0.5;
+}
+
+@keyframes bigToNormal {
+    0% {
+        font-weight: bold;
+        /* font-size: 2rem; */
+    }
+    90%{
+        font-weight: bold;
+        /* font-size: 2rem; */
+    }
+    100% {
+        font-weight: normal;
+        /* font-size: 1.2rem; */
+    }
+}
+
+#events li{
+    /* font-size: 2rem; */
+    animation: bigToNormal 10s ease-out;
 }
